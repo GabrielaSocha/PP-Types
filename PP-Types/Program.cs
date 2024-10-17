@@ -14,8 +14,26 @@ string[] names = {
 // After last element should be ".".
 void PrintGroups(string[] t, int perLine)
 {
+    for (int i = 0; i < t.Length; i++)
+    {
+        Console.Write(t[i]);
 
-    // Write required code.
+        // Check if this is the last element
+        if (i == t.Length - 1)
+        {
+            Console.Write(".");
+        }
+        // End of the group, move to next line
+        else if ((i + 1) % perLine == 0)
+        {
+            Console.WriteLine(",");
+        }
+        // Print comma and space between names
+        else
+        {
+            Console.Write(", ");
+        }
+    }
 
 }
 
@@ -25,10 +43,33 @@ void PrintGroups(string[] t, int perLine)
 // Columns should be separated by "| ".
 // If element is too long it should be trimmed.
 
+
 void PrintColumns(string[] t, int perLine, int width)
 {
 
-    // Write required code.
+    for (int i = 0; i < t.Length; ++i)
+    {
+        if (t[i].Length == width)
+        {
+            Console.Write(t[i]);
+
+        }
+
+        else if (t[i].Length > width)
+        {
+            Console.Write(t[i][0..width]);
+        }
+        else
+            Console.Write(t[i].PadRight(width));
+
+        if ((i + 1) % perLine == 0)
+        {
+            Console.WriteLine();
+        }
+        else
+            Console.Write("|");
+
+    }
 
 }
 
